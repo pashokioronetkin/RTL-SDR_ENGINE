@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a120f;
+    font-family: 'Courier New', monospace;
+    color: #c0ffd0;
+    padding: 16px;
+    min-height: 100vh;
+}
+
+.top-bar {
+    background: #0c1814;
+    border: 1px solid #2f8e6b;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.app-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #d0ffc0;
+}
+
+.connection-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #05100c;
+    padding: 6px 15px;
+}
+
+.led {
+    width: 12px;
+    height: 12px;
+    background: #5a5a5a;
+}
+.led.online { background: #0f0; box-shadow: 0 0 8px #0f0; }
+.led.offline { background: #f00; box-shadow: 0 0 6px #f00; }
+
+.main-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.radar-block {
+    flex: 3;
+    min-width: 450px;
+    background: #05100c;
+    border: 2px solid #2f8e6b;
+    padding: 16px;
+}
+
+.radar-header {
+    color: #b3ffcf;
+    border-bottom: 2px solid #2f8e6b;
+    margin-bottom: 15px;
+    padding-bottom: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.canvas-wrapper {
+    background: #000;
+    display: flex;
+    justify-content: center;
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+    background: #010a07;
+    cursor: crosshair;
+    border: 1px solid #2f8e6b;
+    max-width: 750px;
+}
+
+.radar-footer {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: #8fbfa0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-top: 1px solid #1e4a3a;
+    padding-top: 10px;
+}
+
+.stats-block {
+    flex: 2;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    background: #071410;
+    border: 1px solid #2f8e6b;
+    padding: 16px;
+}
+
+.card-title {
+    color: #d0ffc0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-left: 4px solid #2f8e6b;
+    padding-left: 12px;
+    margin-bottom: 16px;
+    font-weight: bold;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.stat-item {
+    background: #030f0c;
+    padding: 12px 8px;
+    text-align: center;
+    border-left: 2px solid #2f8e6b;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e0ffd0;
+    line-height: 1.1;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #8fbfa0;
+    margin-top: 5px;
+}
+
+.type-distribution {
+    margin-top: 8px;
+}
+
+.type-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    padding: 8px 0;
+    border-bottom: 1px dotted #2f8068;
+}
+
+.log-block {
+    background: #071410;
+    border: 1px solid #2f8e6b;
+    padding: 16px;
+}
+
+.log-title {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    border-left: 4px solid #2f8e6b;
+    padding-left: 12px;
+}
+
+.table-container {
+    max-height: 280px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.75rem;
+    font-family: monospace;
+}
+
+th, td {
+    text-align: left;
+    padding: 6px 4px;
+    border-bottom: 1px solid #1e4a3a;
+    color: #caf0dd;
+}
+
+th {
+    color: #b3ffcf;
+    background: #0c201a;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.risk-high { border-left: 4px solid #ff6666; background: #2a1414; }
+.risk-low { border-left: 4px solid #66ff99; }
+.risk-very_low { border-left: 4px solid #ffcc44; }
+tr:hover { background: #0f2a22; }
+
+footer {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #6f9f7f;
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid #1e4a3a;
+}
+
+@media (max-width: 900px) {
+    .stat-number { font-size: 1.6rem; }
+    .table-container { font-size: 0.7rem; }
+}
+@media (max-width: 700px) {
+    .radar-block { min-width: auto; }
+    .stats-block { min-width: auto; }
+    .radar-footer { font-size: 0.65rem; }
+}

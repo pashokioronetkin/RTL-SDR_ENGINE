@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>РЛК Исток – радиолокационные портреты</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="top-bar">
+    <div class="app-title">РЛК Исток | Радиолокационный портрет</div>
+    <div class="connection-status">
+        <div id="led" class="led offline"></div>
+        <span id="connText">СОЕДИНЕНИЕ: НЕТ</span>
+    </div>
+</div>
+
+<div class="main-grid">
+    <div class="radar-block">
+        <div class="radar-header">АЗИМУТ / ДАЛЬНОСТЬ | РЕЖИМ КРУГОВОГО ОБЗОРА</div>
+        <div class="canvas-wrapper">
+            <canvas id="radarCanvas" width="800" height="800"></canvas>
+        </div>
+        <div class="radar-footer">
+            <span>Масштаб: колёсико мыши</span>
+            <span>Панорама: зажать + двигать</span>
+            <span>Клик по цели → детали</span>
+        </div>
+    </div>
+
+    <div class="stats-block">
+        <div class="info-card">
+            <div class="card-title">ТАКТИЧЕСКАЯ СВОДКА</div>
+            <div class="stats-grid">
+                <div class="stat-item"><div class="stat-number" id="totalTargets">0</div><div class="stat-label">ОБЪЕКТОВ</div></div>
+                <div class="stat-item"><div class="stat-number" id="avgConfidence">0%</div><div class="stat-label">ДОСТОВЕРНОСТЬ</div></div>
+                <div class="stat-item"><div class="stat-number" id="reliableRate">0%</div><div class="stat-label">НАДЁЖНОСТЬ</div></div>
+                <div class="stat-item"><div class="stat-number" id="lastUpdate">--:--:--</div><div class="stat-label">ПОСЛ. ОБНОВЛ.</div></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 15px; gap: 10px;">
+                <div class="stat-item" style="flex:1"><div class="stat-number" id="fpsValue">--</div><div class="stat-label">FPS</div></div>
+                <div class="stat-item" style="flex:1"><div class="stat-number" id="pingValue">--</div><div class="stat-label">PING (мс)</div></div>
+            </div>
+        </div>
+        <div class="info-card">
+            <div class="card-title">РАСПРЕДЕЛЕНИЕ ПО ТИПАМ</div>
+            <div id="typeDist" class="type-distribution">— НЕТ ДАННЫХ —</div>
+        </div>
+    </div>
+</div>
+
+<div class="log-block">
+    <div class="log-title">ЖУРНАЛ ОБНАРУЖЕНИЙ</div>
+    <div class="table-container">
+        <table id="targetsTable">
+            <thead>
+                <tr><th>ВРЕМЯ</th><th>ТИП</th><th>АЗИМУТ</th><th>ДАЛЬН.(км)</th><th>ВЫС.(м)</th><th>РИСК</th></tr>
+            </thead>
+            <tbody id="targetsBody"><tr><td colspan="6" style="text-align:center;">Загрузка истории...</td></tr></tbody>
+        </table>
+    </div>
+</div>
+<footer>АО «НПП «Исток» им. Шокина» | распределённая система визуализации радиолокационных портретов</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
